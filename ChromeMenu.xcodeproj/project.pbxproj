@@ -14,16 +14,16 @@
 		A04489DA183B65850056818A /* ChromeMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04489BD183B65840056818A /* ChromeMenu.framework */; };
 		A04489E0183B65850056818A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A04489DE183B65850056818A /* InfoPlist.strings */; };
 		A04489E2183B65850056818A /* ChromeMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A04489E1183B65850056818A /* ChromeMenuTests.m */; };
-		A0448A09183B6D3E0056818A /* ChromeMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489EC183B6D3E0056818A /* ChromeMenu.h */; };
+		A0448A09183B6D3E0056818A /* ChromeMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489EC183B6D3E0056818A /* ChromeMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0448A0A183B6D3E0056818A /* CMUnderlyingView.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489ED183B6D3E0056818A /* CMUnderlyingView.h */; };
 		A0448A0B183B6D3E0056818A /* CMUnderlyingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04489EE183B6D3E0056818A /* CMUnderlyingView.m */; };
 		A0448A0C183B6D3E0056818A /* CMUnderlyingWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489EF183B6D3E0056818A /* CMUnderlyingWindow.h */; };
 		A0448A0D183B6D3E0056818A /* CMUnderlyingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A04489F0183B6D3E0056818A /* CMUnderlyingWindow.m */; };
 		A0448A0E183B6D3E0056818A /* CMDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489F1183B6D3E0056818A /* CMDebug.h */; };
-		A0448A0F183B6D3E0056818A /* CMMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489F2183B6D3E0056818A /* CMMenu.h */; };
+		A0448A0F183B6D3E0056818A /* CMMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489F2183B6D3E0056818A /* CMMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0448A10183B6D3E0056818A /* CMMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A04489F3183B6D3E0056818A /* CMMenu.m */; };
 		A0448A11183B6D3E0056818A /* CMMenu+InternalMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489F4183B6D3E0056818A /* CMMenu+InternalMethods.h */; };
-		A0448A12183B6D3E0056818A /* CMMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489F5183B6D3E0056818A /* CMMenuItem.h */; };
+		A0448A12183B6D3E0056818A /* CMMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489F5183B6D3E0056818A /* CMMenuItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0448A13183B6D3E0056818A /* CMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A04489F6183B6D3E0056818A /* CMMenuItem.m */; };
 		A0448A14183B6D3E0056818A /* CMMenuItem+InternalMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489F7183B6D3E0056818A /* CMMenuItem+InternalMethods.h */; };
 		A0448A15183B6D3E0056818A /* CMMenuItemSeparatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489F8183B6D3E0056818A /* CMMenuItemSeparatorView.h */; };
@@ -254,11 +254,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0448A20183B6D3E0056818A /* CMScrollView.h in Headers */,
+				A0448A09183B6D3E0056818A /* ChromeMenu.h in Headers */,
+				A0448A0F183B6D3E0056818A /* CMMenu.h in Headers */,
 				A0448A12183B6D3E0056818A /* CMMenuItem.h in Headers */,
+				A0448A20183B6D3E0056818A /* CMScrollView.h in Headers */,
 				A0448A1E183B6D3E0056818A /* CMScrollDocumentView.h in Headers */,
 				A0448A1A183B6D3E0056818A /* CMMenuKeyEventInterpreter.h in Headers */,
-				A0448A09183B6D3E0056818A /* ChromeMenu.h in Headers */,
 				A0448A24183B6D3E0056818A /* NSImage+CMMenuImageRepAdditions.h in Headers */,
 				A0448A1C183B6D3E0056818A /* CMMenuScroller.h in Headers */,
 				A0448A22183B6D3E0056818A /* CMWindowController.h in Headers */,
@@ -266,11 +267,10 @@
 				A0448A14183B6D3E0056818A /* CMMenuItem+InternalMethods.h in Headers */,
 				A0448A17183B6D3E0056818A /* CMMenuItemView.h in Headers */,
 				A0448A0A183B6D3E0056818A /* CMUnderlyingView.h in Headers */,
-				A0448A0F183B6D3E0056818A /* CMMenu.h in Headers */,
 				A0448A11183B6D3E0056818A /* CMMenu+InternalMethods.h in Headers */,
-				A0448A0E183B6D3E0056818A /* CMDebug.h in Headers */,
 				A0448A15183B6D3E0056818A /* CMMenuItemSeparatorView.h in Headers */,
 				A0448A0C183B6D3E0056818A /* CMUnderlyingWindow.h in Headers */,
+				A0448A0E183B6D3E0056818A /* CMDebug.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +464,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Definemac Code Signing Certificate";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -501,6 +502,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Definemac Code Signing Certificate";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -532,7 +534,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_SIGN_COMPARE = YES;
 				INFOPLIST_FILE = "ChromeMenu/ChromeMenu-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -553,7 +555,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_SIGN_COMPARE = YES;
 				INFOPLIST_FILE = "ChromeMenu/ChromeMenu-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};

@@ -229,7 +229,7 @@ typedef struct tracking_primitive_s {
 			// Scroll view frame includes the menu top and bottom paddings
 			[_scrollView setFrame:NSMakeRect(0, _verticalPadding, frame.size.width, frame.size.height - 2 * _verticalPadding)];
 			[[self window] flushWindowIfNeeded];
-			NSLog(@"new frame for window: %@", NSStringFromRect(frame));
+//			NSLog(@"new frame for window: %@", NSStringFromRect(frame));
 		}
 	}
 	

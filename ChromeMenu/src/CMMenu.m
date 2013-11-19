@@ -17,6 +17,7 @@
 #import "CMDebug.h"
 #include <stdlib.h>		// malloc
 
+#define CM_FRAMEWORK_BUNDLE_IDENTIFIER @"definemac.ChromeMenu"
 #define CMMENU_PADDING_TO_SCREEN_EDGES 6
 
 // Posting notification types
@@ -616,7 +617,7 @@ typedef struct {
  */
 - (void)didDeactivateApplicationNotificationHandler:(NSNotification *)notification {
 	NSRunningApplication *deactivatedApp = [[notification userInfo] objectForKey:NSWorkspaceApplicationKey];
-	NSLog(@"did deactive application, current: %@, deactivated: %@", [NSRunningApplication currentApplication], deactivatedApp);
+//	NSLog(@"did deactive application, current: %@, deactivated: %@", [NSRunningApplication currentApplication], deactivatedApp);
 	if ([[NSRunningApplication currentApplication] isEqual:deactivatedApp]) {
 		[self cancelTracking];
 	}
@@ -916,17 +917,19 @@ typedef struct {
 - (NSViewController *)viewForItem:(CMMenuItem *)menuItem {
 	NSViewController *viewController;
 	
+	NSBundle *frameworkBundle = [NSBundle bundleWithIdentifier:CM_FRAMEWORK_BUNDLE_IDENTIFIER];
+	
 	if ([menuItem isSeparatorItem]) {
-		viewController = [[NSViewController alloc] initWithNibName:@"CMMenuItemSeparatorView" bundle:nil];
+		viewController = [[NSViewController alloc] initWithNibName:@"CMMenuItemSeparatorView" bundle:frameworkBundle];
 	} else {
 		CMMenuItemView *view;
 		
 		if ([menuItem icon]) {
-			viewController = [[NSViewController alloc] initWithNibName:@"CMMenuItemIconView" bundle:nil];
+			viewController = [[NSViewController alloc] initWithNibName:@"CMMenuItemIconView" bundle:frameworkBundle];
 			view = (CMMenuItemView *)viewController.view;
 			[[view icon] setImage:[menuItem icon]];
 		} else {
-			viewController = [[NSViewController alloc] initWithNibName:@"CMMenuItemView" bundle:nil];
+			viewController = [[NSViewController alloc] initWithNibName:@"CMMenuItemView" bundle:frameworkBundle];
 			view = (CMMenuItemView *)viewController.view;
 		}
 		
@@ -1182,7 +1185,7 @@ typedef struct {
 - (void)mouseEventAtLocation:(NSPoint)mouseLocation type:(NSEventType)eventType {
 
 	if (eventType == NSMouseEntered) {
-		NSLog(@"mouse ENTER menu: %@", [self title]);
+//		NSLog(@"mouse ENTER menu: %@", [self title]);
 		
 		/*
 		 * Possible Events:
@@ -1193,7 +1196,6 @@ typedef struct {
 		 */
 		
 		CMMenuItem *mousedItem = [self itemAtPoint:mouseLocation];
-		NSLog(@"moused item %@", mousedItem);
 		if (_activeSubmenu) {				// 1.
 			if (mousedItem && mousedItem == [_activeSubmenu parentItem]) {	// 1.a
 				if ([_activeSubmenu activeSubmenu])							// if submenu has active submenus -- close them
