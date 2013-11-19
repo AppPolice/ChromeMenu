@@ -1,0 +1,635 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A04489C1183B65840056818A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04489C0183B65840056818A /* Cocoa.framework */; };
+		A04489CB183B65840056818A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A04489C9183B65840056818A /* InfoPlist.strings */; };
+		A04489D6183B65850056818A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04489D5183B65850056818A /* XCTest.framework */; };
+		A04489D7183B65850056818A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04489C0183B65840056818A /* Cocoa.framework */; };
+		A04489DA183B65850056818A /* ChromeMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04489BD183B65840056818A /* ChromeMenu.framework */; };
+		A04489E0183B65850056818A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A04489DE183B65850056818A /* InfoPlist.strings */; };
+		A04489E2183B65850056818A /* ChromeMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A04489E1183B65850056818A /* ChromeMenuTests.m */; };
+		A0448A09183B6D3E0056818A /* ChromeMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489EC183B6D3E0056818A /* ChromeMenu.h */; };
+		A0448A0A183B6D3E0056818A /* CMUnderlyingView.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489ED183B6D3E0056818A /* CMUnderlyingView.h */; };
+		A0448A0B183B6D3E0056818A /* CMUnderlyingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04489EE183B6D3E0056818A /* CMUnderlyingView.m */; };
+		A0448A0C183B6D3E0056818A /* CMUnderlyingWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489EF183B6D3E0056818A /* CMUnderlyingWindow.h */; };
+		A0448A0D183B6D3E0056818A /* CMUnderlyingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A04489F0183B6D3E0056818A /* CMUnderlyingWindow.m */; };
+		A0448A0E183B6D3E0056818A /* CMDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489F1183B6D3E0056818A /* CMDebug.h */; };
+		A0448A0F183B6D3E0056818A /* CMMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489F2183B6D3E0056818A /* CMMenu.h */; };
+		A0448A10183B6D3E0056818A /* CMMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A04489F3183B6D3E0056818A /* CMMenu.m */; };
+		A0448A11183B6D3E0056818A /* CMMenu+InternalMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489F4183B6D3E0056818A /* CMMenu+InternalMethods.h */; };
+		A0448A12183B6D3E0056818A /* CMMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489F5183B6D3E0056818A /* CMMenuItem.h */; };
+		A0448A13183B6D3E0056818A /* CMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A04489F6183B6D3E0056818A /* CMMenuItem.m */; };
+		A0448A14183B6D3E0056818A /* CMMenuItem+InternalMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489F7183B6D3E0056818A /* CMMenuItem+InternalMethods.h */; };
+		A0448A15183B6D3E0056818A /* CMMenuItemSeparatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489F8183B6D3E0056818A /* CMMenuItemSeparatorView.h */; };
+		A0448A16183B6D3E0056818A /* CMMenuItemSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04489F9183B6D3E0056818A /* CMMenuItemSeparatorView.m */; };
+		A0448A17183B6D3E0056818A /* CMMenuItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489FA183B6D3E0056818A /* CMMenuItemView.h */; };
+		A0448A18183B6D3E0056818A /* CMMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04489FB183B6D3E0056818A /* CMMenuItemView.m */; };
+		A0448A19183B6D3E0056818A /* CMMenuItemView+InternalMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489FC183B6D3E0056818A /* CMMenuItemView+InternalMethods.h */; };
+		A0448A1A183B6D3E0056818A /* CMMenuKeyEventInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489FD183B6D3E0056818A /* CMMenuKeyEventInterpreter.h */; };
+		A0448A1B183B6D3E0056818A /* CMMenuKeyEventInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = A04489FE183B6D3E0056818A /* CMMenuKeyEventInterpreter.m */; };
+		A0448A1C183B6D3E0056818A /* CMMenuScroller.h in Headers */ = {isa = PBXBuildFile; fileRef = A04489FF183B6D3E0056818A /* CMMenuScroller.h */; };
+		A0448A1D183B6D3E0056818A /* CMMenuScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = A0448A00183B6D3E0056818A /* CMMenuScroller.m */; };
+		A0448A1E183B6D3E0056818A /* CMScrollDocumentView.h in Headers */ = {isa = PBXBuildFile; fileRef = A0448A01183B6D3E0056818A /* CMScrollDocumentView.h */; };
+		A0448A1F183B6D3E0056818A /* CMScrollDocumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0448A02183B6D3E0056818A /* CMScrollDocumentView.m */; };
+		A0448A20183B6D3E0056818A /* CMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = A0448A03183B6D3E0056818A /* CMScrollView.h */; };
+		A0448A21183B6D3E0056818A /* CMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0448A04183B6D3E0056818A /* CMScrollView.m */; };
+		A0448A22183B6D3E0056818A /* CMWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = A0448A05183B6D3E0056818A /* CMWindowController.h */; };
+		A0448A23183B6D3E0056818A /* CMWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0448A06183B6D3E0056818A /* CMWindowController.m */; };
+		A0448A24183B6D3E0056818A /* NSImage+CMMenuImageRepAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A0448A07183B6D3E0056818A /* NSImage+CMMenuImageRepAdditions.h */; };
+		A0448A25183B6D3E0056818A /* NSImage+CMMenuImageRepAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A0448A08183B6D3E0056818A /* NSImage+CMMenuImageRepAdditions.m */; };
+		A0448A2C183B6D5D0056818A /* CMMenuItemIconView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0448A26183B6D5D0056818A /* CMMenuItemIconView.xib */; };
+		A0448A2D183B6D5D0056818A /* CMMenuItemSeparatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0448A28183B6D5D0056818A /* CMMenuItemSeparatorView.xib */; };
+		A0448A2E183B6D5D0056818A /* CMMenuItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0448A2A183B6D5D0056818A /* CMMenuItemView.xib */; };
+		A0448A30183B6F1D0056818A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0448A2F183B6F1D0056818A /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A04489D8183B65850056818A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A04489B4183B65840056818A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A04489BC183B65840056818A;
+			remoteInfo = ChromeMenu;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A04489BD183B65840056818A /* ChromeMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChromeMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A04489C0183B65840056818A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A04489C3183B65840056818A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A04489C4183B65840056818A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A04489C5183B65840056818A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A04489C8183B65840056818A /* ChromeMenu-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChromeMenu-Info.plist"; sourceTree = "<group>"; };
+		A04489CA183B65840056818A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A04489CC183B65840056818A /* ChromeMenu-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChromeMenu-Prefix.pch"; sourceTree = "<group>"; };
+		A04489D4183B65850056818A /* ChromeMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChromeMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A04489D5183B65850056818A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A04489DD183B65850056818A /* ChromeMenuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChromeMenuTests-Info.plist"; sourceTree = "<group>"; };
+		A04489DF183B65850056818A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A04489E1183B65850056818A /* ChromeMenuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChromeMenuTests.m; sourceTree = "<group>"; };
+		A04489EC183B6D3E0056818A /* ChromeMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChromeMenu.h; path = src/ChromeMenu.h; sourceTree = "<group>"; };
+		A04489ED183B6D3E0056818A /* CMUnderlyingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMUnderlyingView.h; path = src/CMUnderlyingView.h; sourceTree = "<group>"; };
+		A04489EE183B6D3E0056818A /* CMUnderlyingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMUnderlyingView.m; path = src/CMUnderlyingView.m; sourceTree = "<group>"; };
+		A04489EF183B6D3E0056818A /* CMUnderlyingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMUnderlyingWindow.h; path = src/CMUnderlyingWindow.h; sourceTree = "<group>"; };
+		A04489F0183B6D3E0056818A /* CMUnderlyingWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMUnderlyingWindow.m; path = src/CMUnderlyingWindow.m; sourceTree = "<group>"; };
+		A04489F1183B6D3E0056818A /* CMDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDebug.h; path = src/CMDebug.h; sourceTree = "<group>"; };
+		A04489F2183B6D3E0056818A /* CMMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMMenu.h; path = src/CMMenu.h; sourceTree = "<group>"; };
+		A04489F3183B6D3E0056818A /* CMMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMMenu.m; path = src/CMMenu.m; sourceTree = "<group>"; };
+		A04489F4183B6D3E0056818A /* CMMenu+InternalMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CMMenu+InternalMethods.h"; path = "src/CMMenu+InternalMethods.h"; sourceTree = "<group>"; };
+		A04489F5183B6D3E0056818A /* CMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMMenuItem.h; path = src/CMMenuItem.h; sourceTree = "<group>"; };
+		A04489F6183B6D3E0056818A /* CMMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMMenuItem.m; path = src/CMMenuItem.m; sourceTree = "<group>"; };
+		A04489F7183B6D3E0056818A /* CMMenuItem+InternalMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CMMenuItem+InternalMethods.h"; path = "src/CMMenuItem+InternalMethods.h"; sourceTree = "<group>"; };
+		A04489F8183B6D3E0056818A /* CMMenuItemSeparatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMMenuItemSeparatorView.h; path = src/CMMenuItemSeparatorView.h; sourceTree = "<group>"; };
+		A04489F9183B6D3E0056818A /* CMMenuItemSeparatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMMenuItemSeparatorView.m; path = src/CMMenuItemSeparatorView.m; sourceTree = "<group>"; };
+		A04489FA183B6D3E0056818A /* CMMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMMenuItemView.h; path = src/CMMenuItemView.h; sourceTree = "<group>"; };
+		A04489FB183B6D3E0056818A /* CMMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMMenuItemView.m; path = src/CMMenuItemView.m; sourceTree = "<group>"; };
+		A04489FC183B6D3E0056818A /* CMMenuItemView+InternalMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CMMenuItemView+InternalMethods.h"; path = "src/CMMenuItemView+InternalMethods.h"; sourceTree = "<group>"; };
+		A04489FD183B6D3E0056818A /* CMMenuKeyEventInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMMenuKeyEventInterpreter.h; path = src/CMMenuKeyEventInterpreter.h; sourceTree = "<group>"; };
+		A04489FE183B6D3E0056818A /* CMMenuKeyEventInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMMenuKeyEventInterpreter.m; path = src/CMMenuKeyEventInterpreter.m; sourceTree = "<group>"; };
+		A04489FF183B6D3E0056818A /* CMMenuScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMMenuScroller.h; path = src/CMMenuScroller.h; sourceTree = "<group>"; };
+		A0448A00183B6D3E0056818A /* CMMenuScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMMenuScroller.m; path = src/CMMenuScroller.m; sourceTree = "<group>"; };
+		A0448A01183B6D3E0056818A /* CMScrollDocumentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMScrollDocumentView.h; path = src/CMScrollDocumentView.h; sourceTree = "<group>"; };
+		A0448A02183B6D3E0056818A /* CMScrollDocumentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMScrollDocumentView.m; path = src/CMScrollDocumentView.m; sourceTree = "<group>"; };
+		A0448A03183B6D3E0056818A /* CMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMScrollView.h; path = src/CMScrollView.h; sourceTree = "<group>"; };
+		A0448A04183B6D3E0056818A /* CMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMScrollView.m; path = src/CMScrollView.m; sourceTree = "<group>"; };
+		A0448A05183B6D3E0056818A /* CMWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMWindowController.h; path = src/CMWindowController.h; sourceTree = "<group>"; };
+		A0448A06183B6D3E0056818A /* CMWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMWindowController.m; path = src/CMWindowController.m; sourceTree = "<group>"; };
+		A0448A07183B6D3E0056818A /* NSImage+CMMenuImageRepAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+CMMenuImageRepAdditions.h"; path = "src/NSImage+CMMenuImageRepAdditions.h"; sourceTree = "<group>"; };
+		A0448A08183B6D3E0056818A /* NSImage+CMMenuImageRepAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+CMMenuImageRepAdditions.m"; path = "src/NSImage+CMMenuImageRepAdditions.m"; sourceTree = "<group>"; };
+		A0448A27183B6D5D0056818A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CMMenuItemIconView.xib; sourceTree = "<group>"; };
+		A0448A29183B6D5D0056818A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CMMenuItemSeparatorView.xib; sourceTree = "<group>"; };
+		A0448A2B183B6D5D0056818A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CMMenuItemView.xib; sourceTree = "<group>"; };
+		A0448A2F183B6F1D0056818A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A04489B9183B65840056818A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0448A30183B6F1D0056818A /* QuartzCore.framework in Frameworks */,
+				A04489C1183B65840056818A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A04489D1183B65850056818A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A04489DA183B65850056818A /* ChromeMenu.framework in Frameworks */,
+				A04489D7183B65850056818A /* Cocoa.framework in Frameworks */,
+				A04489D6183B65850056818A /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A04489B3183B65840056818A = {
+			isa = PBXGroup;
+			children = (
+				A04489C6183B65840056818A /* ChromeMenu */,
+				A04489DB183B65850056818A /* ChromeMenuTests */,
+				A04489BF183B65840056818A /* Frameworks */,
+				A04489BE183B65840056818A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A04489BE183B65840056818A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A04489BD183B65840056818A /* ChromeMenu.framework */,
+				A04489D4183B65850056818A /* ChromeMenuTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A04489BF183B65840056818A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0448A2F183B6F1D0056818A /* QuartzCore.framework */,
+				A04489C0183B65840056818A /* Cocoa.framework */,
+				A04489D5183B65850056818A /* XCTest.framework */,
+				A04489C2183B65840056818A /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A04489C2183B65840056818A /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A04489C3183B65840056818A /* Foundation.framework */,
+				A04489C4183B65840056818A /* CoreData.framework */,
+				A04489C5183B65840056818A /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		A04489C6183B65840056818A /* ChromeMenu */ = {
+			isa = PBXGroup;
+			children = (
+				A04489EB183B6D250056818A /* src */,
+				A04489C7183B65840056818A /* Supporting Files */,
+			);
+			path = ChromeMenu;
+			sourceTree = "<group>";
+		};
+		A04489C7183B65840056818A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0448A26183B6D5D0056818A /* CMMenuItemIconView.xib */,
+				A0448A28183B6D5D0056818A /* CMMenuItemSeparatorView.xib */,
+				A0448A2A183B6D5D0056818A /* CMMenuItemView.xib */,
+				A04489C8183B65840056818A /* ChromeMenu-Info.plist */,
+				A04489C9183B65840056818A /* InfoPlist.strings */,
+				A04489CC183B65840056818A /* ChromeMenu-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A04489DB183B65850056818A /* ChromeMenuTests */ = {
+			isa = PBXGroup;
+			children = (
+				A04489E1183B65850056818A /* ChromeMenuTests.m */,
+				A04489DC183B65850056818A /* Supporting Files */,
+			);
+			path = ChromeMenuTests;
+			sourceTree = "<group>";
+		};
+		A04489DC183B65850056818A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A04489DD183B65850056818A /* ChromeMenuTests-Info.plist */,
+				A04489DE183B65850056818A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A04489EB183B6D250056818A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A04489EC183B6D3E0056818A /* ChromeMenu.h */,
+				A04489F2183B6D3E0056818A /* CMMenu.h */,
+				A04489F3183B6D3E0056818A /* CMMenu.m */,
+				A04489F5183B6D3E0056818A /* CMMenuItem.h */,
+				A04489F6183B6D3E0056818A /* CMMenuItem.m */,
+				A0448A05183B6D3E0056818A /* CMWindowController.h */,
+				A0448A06183B6D3E0056818A /* CMWindowController.m */,
+				A04489ED183B6D3E0056818A /* CMUnderlyingView.h */,
+				A04489EE183B6D3E0056818A /* CMUnderlyingView.m */,
+				A04489EF183B6D3E0056818A /* CMUnderlyingWindow.h */,
+				A04489F0183B6D3E0056818A /* CMUnderlyingWindow.m */,
+				A04489F1183B6D3E0056818A /* CMDebug.h */,
+				A04489F4183B6D3E0056818A /* CMMenu+InternalMethods.h */,
+				A04489F7183B6D3E0056818A /* CMMenuItem+InternalMethods.h */,
+				A04489F8183B6D3E0056818A /* CMMenuItemSeparatorView.h */,
+				A04489F9183B6D3E0056818A /* CMMenuItemSeparatorView.m */,
+				A04489FA183B6D3E0056818A /* CMMenuItemView.h */,
+				A04489FB183B6D3E0056818A /* CMMenuItemView.m */,
+				A04489FC183B6D3E0056818A /* CMMenuItemView+InternalMethods.h */,
+				A04489FD183B6D3E0056818A /* CMMenuKeyEventInterpreter.h */,
+				A04489FE183B6D3E0056818A /* CMMenuKeyEventInterpreter.m */,
+				A04489FF183B6D3E0056818A /* CMMenuScroller.h */,
+				A0448A00183B6D3E0056818A /* CMMenuScroller.m */,
+				A0448A01183B6D3E0056818A /* CMScrollDocumentView.h */,
+				A0448A02183B6D3E0056818A /* CMScrollDocumentView.m */,
+				A0448A03183B6D3E0056818A /* CMScrollView.h */,
+				A0448A04183B6D3E0056818A /* CMScrollView.m */,
+				A0448A07183B6D3E0056818A /* NSImage+CMMenuImageRepAdditions.h */,
+				A0448A08183B6D3E0056818A /* NSImage+CMMenuImageRepAdditions.m */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A04489BA183B65840056818A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0448A20183B6D3E0056818A /* CMScrollView.h in Headers */,
+				A0448A12183B6D3E0056818A /* CMMenuItem.h in Headers */,
+				A0448A1E183B6D3E0056818A /* CMScrollDocumentView.h in Headers */,
+				A0448A1A183B6D3E0056818A /* CMMenuKeyEventInterpreter.h in Headers */,
+				A0448A09183B6D3E0056818A /* ChromeMenu.h in Headers */,
+				A0448A24183B6D3E0056818A /* NSImage+CMMenuImageRepAdditions.h in Headers */,
+				A0448A1C183B6D3E0056818A /* CMMenuScroller.h in Headers */,
+				A0448A22183B6D3E0056818A /* CMWindowController.h in Headers */,
+				A0448A19183B6D3E0056818A /* CMMenuItemView+InternalMethods.h in Headers */,
+				A0448A14183B6D3E0056818A /* CMMenuItem+InternalMethods.h in Headers */,
+				A0448A17183B6D3E0056818A /* CMMenuItemView.h in Headers */,
+				A0448A0A183B6D3E0056818A /* CMUnderlyingView.h in Headers */,
+				A0448A0F183B6D3E0056818A /* CMMenu.h in Headers */,
+				A0448A11183B6D3E0056818A /* CMMenu+InternalMethods.h in Headers */,
+				A0448A0E183B6D3E0056818A /* CMDebug.h in Headers */,
+				A0448A15183B6D3E0056818A /* CMMenuItemSeparatorView.h in Headers */,
+				A0448A0C183B6D3E0056818A /* CMUnderlyingWindow.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A04489BC183B65840056818A /* ChromeMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A04489E5183B65850056818A /* Build configuration list for PBXNativeTarget "ChromeMenu" */;
+			buildPhases = (
+				A04489B8183B65840056818A /* Sources */,
+				A04489B9183B65840056818A /* Frameworks */,
+				A04489BA183B65840056818A /* Headers */,
+				A04489BB183B65840056818A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChromeMenu;
+			productName = ChromeMenu;
+			productReference = A04489BD183B65840056818A /* ChromeMenu.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A04489D3183B65850056818A /* ChromeMenuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A04489E8183B65850056818A /* Build configuration list for PBXNativeTarget "ChromeMenuTests" */;
+			buildPhases = (
+				A04489D0183B65850056818A /* Sources */,
+				A04489D1183B65850056818A /* Frameworks */,
+				A04489D2183B65850056818A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A04489D9183B65850056818A /* PBXTargetDependency */,
+			);
+			name = ChromeMenuTests;
+			productName = ChromeMenuTests;
+			productReference = A04489D4183B65850056818A /* ChromeMenuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A04489B4183B65840056818A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = definemac.com;
+				TargetAttributes = {
+					A04489D3183B65850056818A = {
+						TestTargetID = A04489BC183B65840056818A;
+					};
+				};
+			};
+			buildConfigurationList = A04489B7183B65840056818A /* Build configuration list for PBXProject "ChromeMenu" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A04489B3183B65840056818A;
+			productRefGroup = A04489BE183B65840056818A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A04489BC183B65840056818A /* ChromeMenu */,
+				A04489D3183B65850056818A /* ChromeMenuTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A04489BB183B65840056818A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A04489CB183B65840056818A /* InfoPlist.strings in Resources */,
+				A0448A2D183B6D5D0056818A /* CMMenuItemSeparatorView.xib in Resources */,
+				A0448A2E183B6D5D0056818A /* CMMenuItemView.xib in Resources */,
+				A0448A2C183B6D5D0056818A /* CMMenuItemIconView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A04489D2183B65850056818A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A04489E0183B65850056818A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A04489B8183B65840056818A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0448A0B183B6D3E0056818A /* CMUnderlyingView.m in Sources */,
+				A0448A1B183B6D3E0056818A /* CMMenuKeyEventInterpreter.m in Sources */,
+				A0448A10183B6D3E0056818A /* CMMenu.m in Sources */,
+				A0448A25183B6D3E0056818A /* NSImage+CMMenuImageRepAdditions.m in Sources */,
+				A0448A1F183B6D3E0056818A /* CMScrollDocumentView.m in Sources */,
+				A0448A16183B6D3E0056818A /* CMMenuItemSeparatorView.m in Sources */,
+				A0448A21183B6D3E0056818A /* CMScrollView.m in Sources */,
+				A0448A0D183B6D3E0056818A /* CMUnderlyingWindow.m in Sources */,
+				A0448A23183B6D3E0056818A /* CMWindowController.m in Sources */,
+				A0448A18183B6D3E0056818A /* CMMenuItemView.m in Sources */,
+				A0448A1D183B6D3E0056818A /* CMMenuScroller.m in Sources */,
+				A0448A13183B6D3E0056818A /* CMMenuItem.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A04489D0183B65850056818A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A04489E2183B65850056818A /* ChromeMenuTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A04489D9183B65850056818A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A04489BC183B65840056818A /* ChromeMenu */;
+			targetProxy = A04489D8183B65850056818A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A04489C9183B65840056818A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A04489CA183B65840056818A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A04489DE183B65850056818A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A04489DF183B65850056818A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A0448A26183B6D5D0056818A /* CMMenuItemIconView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0448A27183B6D5D0056818A /* en */,
+			);
+			name = CMMenuItemIconView.xib;
+			sourceTree = "<group>";
+		};
+		A0448A28183B6D5D0056818A /* CMMenuItemSeparatorView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0448A29183B6D5D0056818A /* en */,
+			);
+			name = CMMenuItemSeparatorView.xib;
+			sourceTree = "<group>";
+		};
+		A0448A2A183B6D5D0056818A /* CMMenuItemView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0448A2B183B6D5D0056818A /* en */,
+			);
+			name = CMMenuItemView.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A04489E3183B65850056818A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A04489E4183B65850056818A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A04489E6183B65850056818A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChromeMenu/ChromeMenu-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				INFOPLIST_FILE = "ChromeMenu/ChromeMenu-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		A04489E7183B65850056818A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChromeMenu/ChromeMenu-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				INFOPLIST_FILE = "ChromeMenu/ChromeMenu-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		A04489E9183B65850056818A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ChromeMenu.framework/Versions/A/ChromeMenu";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChromeMenu/ChromeMenu-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ChromeMenuTests/ChromeMenuTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A04489EA183B65850056818A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ChromeMenu.framework/Versions/A/ChromeMenu";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChromeMenu/ChromeMenu-Prefix.pch";
+				INFOPLIST_FILE = "ChromeMenuTests/ChromeMenuTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A04489B7183B65840056818A /* Build configuration list for PBXProject "ChromeMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A04489E3183B65850056818A /* Debug */,
+				A04489E4183B65850056818A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A04489E5183B65850056818A /* Build configuration list for PBXNativeTarget "ChromeMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A04489E6183B65850056818A /* Debug */,
+				A04489E7183B65850056818A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A04489E8183B65850056818A /* Build configuration list for PBXNativeTarget "ChromeMenuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A04489E9183B65850056818A /* Debug */,
+				A04489EA183B65850056818A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A04489B4183B65840056818A /* Project object */;
+}
