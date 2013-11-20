@@ -1311,7 +1311,7 @@ typedef struct tracking_primitive_s {
 			} else if ([_owner isAttachedToStatusItem] && NSPointInRect(mouseLocation, [_owner statusItemRect])) {
 //				NSLog(@"status window: %@", [theEvent window]);
 //				[NSApp discardEventsMatchingMask:NSAnyEventMask beforeEvent:theEvent];
-//				[eventWindow sendEvent:theEvent];
+				[eventWindow sendEvent:theEvent];
 				goto endEvent;
 			} else if ([_owner cancelsTrackingOnMouseEventOutsideMenus]) {
 //				NSLog(@"mouse is outside any menu during MOUSEUP!!!");

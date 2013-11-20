@@ -17,7 +17,7 @@
 #import "CMDebug.h"
 #include <stdlib.h>		// malloc
 
-#define CM_FRAMEWORK_BUNDLE_IDENTIFIER @"definemac.ChromeMenu"
+#define CM_FRAMEWORK_BUNDLE_IDENTIFIER @"com.definemac.ChromeMenu"
 #define CMMENU_PADDING_TO_SCREEN_EDGES 6
 
 // Posting notification types
@@ -528,6 +528,9 @@ typedef struct {
  *
  */
 - (void)cancelTracking {
+	if (! _isActive)
+		return;
+	
 	if (_activeSubmenu) {
 		[_activeSubmenu cancelTracking];
 	}
@@ -576,6 +579,9 @@ typedef struct {
  *
  */
 - (void)cancelTrackingWithoutAnimation {
+	if (! _isActive)
+		return;
+	
 	if (_activeSubmenu) {
 		[_activeSubmenu cancelTrackingWithoutAnimation];
 	}
