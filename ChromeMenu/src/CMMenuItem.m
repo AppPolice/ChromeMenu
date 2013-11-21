@@ -24,7 +24,7 @@
 {
 	BOOL _isSelected;
 	// Mouse can be over item if it is not selected (e.g. during submenu tracking)
-	BOOL _mouseOver;
+//	BOOL _mouseOver;
 	BOOL _submenuIntervalIsSetToPopup;
 	NSViewController *_representedViewController;
 	
@@ -370,18 +370,10 @@
 	BOOL changeStatus = YES;
 	
 	if (eventType & CMMenuEventMouseEnteredItem) {
-		_mouseOver = YES;
+//		_mouseOver = YES;
 		
 		if (_isSelected) {
 			changeStatus = NO;
-//			if ([[self menu] isTrackingSubmenu]) {		// while tracking submenu, mouse returned to parent item
-//				[[self menu] stopTrackingSubmenuReasonSuccess:YES];
-//			} else if ([self hasSubmenu]) {
-//				BOOL alreadyShowingSubmenu = ([[self menu] activeSubmenu] && [[self menu] activeSubmenu] == _submenu);
-//					XLog("please show us submenu");
-//				[self performSelector:@selector(showItemSubmenu) withObject:nil afterDelay:SUBMENU_POPUP_DELAY_DEFAULT inModes:[NSArray arrayWithObject:NSEventTrackingRunLoopMode]];
-//				_submenuIntervalIsSetToPopup = YES;
-//			}
 			
 			if ([self hasSubmenu]) {
 				if ([[self menu] isTrackingSubmenu]) {		// while tracking submenu, mouse returned to parent item
@@ -390,39 +382,32 @@
 					CMMenu *activeSubmenu = [[self menu] activeSubmenu];
 					// TODO: Take care of this part: either provide comment what it does or edit it!
 					if ( !activeSubmenu && activeSubmenu != _submenu) {
-//						[self performSelector:@selector(showItemSubmenu) withObject:nil afterDelay:SUBMENU_POPUP_DELAY_DEFAULT inModes:[NSArray arrayWithObject:NSEventTrackingRunLoopMode]];
-						[self performSelector:@selector(showItemSubmenu) withObject:nil afterDelay:SUBMENU_POPUP_DELAY_DEFAULT inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
+						[self performSelector:@selector(showItemSubmenu)
+								   withObject:nil
+								   afterDelay:SUBMENU_POPUP_DELAY_DEFAULT
+									  inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
 						_submenuIntervalIsSetToPopup = YES;
 					}
 				}
 			}
 				
 		} else {
-//			if ([[self menu] activeSubmenu]) {
 			if ([[self menu] activeSubmenu] && [[self menu] isTrackingSubmenu]) {
-				// must do work here
-//				if ([[self menu] isTrackingSubmenu])
-					changeStatus = NO;
-//				else {
-//					_isSelected = YES;
-//					if ([self hasSubmenu]) {
-//						[self performSelector:@selector(showItemSubmenu) withObject:nil afterDelay:0.2];
-//						_submenuIntervalIsSetToPopup = 1;
-//					}
-//				}
+				changeStatus = NO;
 			} else {
 				_isSelected = YES;
 				
 				if ([self hasSubmenu] && [_submenu numberOfItems]) {
-//					[self performSelector:@selector(showItemSubmenu) withObject:nil afterDelay:SUBMENU_POPUP_DELAY_DEFAULT];
-//					[self performSelector:@selector(showItemSubmenu) withObject:nil afterDelay:SUBMENU_POPUP_DELAY_DEFAULT inModes:[NSArray arrayWithObject:NSEventTrackingRunLoopMode]];
-					[self performSelector:@selector(showItemSubmenu) withObject:nil afterDelay:SUBMENU_POPUP_DELAY_DEFAULT inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
+					[self performSelector:@selector(showItemSubmenu)
+							   withObject:nil
+							   afterDelay:SUBMENU_POPUP_DELAY_DEFAULT
+								  inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
 					_submenuIntervalIsSetToPopup = YES;
 				}
 			}
 		}
 	} else if (eventType & CMMenuEventMouseExitedItem) {
-		_mouseOver = NO;
+//		_mouseOver = NO;
 		
 		CMMenu *activeSubmenu = [[self menu] activeSubmenu];
 		if (activeSubmenu && activeSubmenu == _submenu) {
@@ -452,15 +437,11 @@
 		NSArray *items = [_menu itemArray];
 		for (CMMenuItem *item in items) {
 			if ([item isSelected] && item != self) {
-//				NSLog(@"TRACKINGAREA DE-select item: %@", item);
 				[item deselect];
 			}
 		}
 	}
-	
-//	if (_isSelected && changeStatus)
-//		NSLog(@"TRACKINGAREA select item: %@", self);
-	
+		
 	return changeStatus;
 }
 
@@ -519,9 +500,9 @@
 	return _isSelected;
 }
 
-- (BOOL)mouseOver {
-	return _mouseOver;
-}
+//- (BOOL)mouseOver {
+//	return _mouseOver;
+//}
 
 
 - (void)select {

@@ -49,10 +49,7 @@
 	if ([[self representations] count] > 1)
 		return;
 	
-//	NSLog(@"creating image rep of image: %@", self);
-	
 	NSBitmapImageRep *bitmapImageRep = [self bitmapImageRepresentation];
-	//	NSLog(@"bitmap image rep: %@", bitmapImageRep);
 	
 	CIImage *ciImage = [[[CIImage alloc] initWithBitmapImageRep:bitmapImageRep] autorelease];
 	CIFilter *ciFilter = [CIFilter filterWithName:@"CIColorInvert"];

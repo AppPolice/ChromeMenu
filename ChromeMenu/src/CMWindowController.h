@@ -6,12 +6,11 @@
 //  Copyright (c) 2013 Maksym Stefanchuk. All rights reserved.
 //
 
-//#import <AppKit/AppKit.h>
 #import "CMMenu+InternalMethods.h"
 
 @class CMMenu, CMMenuScroller;
 
-@interface CMWindowController : NSWindowController
+@interface CMWindowController : NSWindowController <NSWindowDelegate>
 
 
 /* The designated initializer. This window controller creates its own custom suggestions window. */

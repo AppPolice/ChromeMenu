@@ -147,6 +147,7 @@ typedef struct tracking_primitive_s {
 		
 		static int level = 0;
 		[window setLevel:NSPopUpMenuWindowLevel + level];
+		[window setDelegate:self];
 		++level;
 		[window setHidesOnDeactivate:NO];
 //		[window setAcceptsMouseMovedEvents:YES];

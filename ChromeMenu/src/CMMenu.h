@@ -17,6 +17,7 @@
 	@private
 	NSString *_title;
 	CMMenu *_supermenu;
+	BOOL _performsActionInstantly;
 	
 	NSMutableArray *_menuItems;
 }
@@ -30,11 +31,9 @@
 - (void)setTitle:(NSString *)aString;
 - (NSString *)title;
 
-
 - (BOOL)popUpMenuPositioningItem:(NSMenuItem *)item atLocation:(NSPoint)location inView:(NSView *)view;
 
 - (void)popUpMenuForStatusItemWithRect:(NSRect)rect;
-
 
 /* Returns the menu containing the item that has the receiver as a submenu, or nil if this menu is not the submenu of an item in a menu. */
 - (CMMenu *)supermenu;
@@ -72,9 +71,7 @@
 
 /* Removes the item from the menu.  If the item is nil, or is not present in the receiver, an exception will be raised. */
 - (void)removeItem:(CMMenuItem *)item animate:(BOOL)animate;
-
 - (void)removeItemsAtIndexes:(NSIndexSet *)indexes;
-
 
 /* Dismisses the menu and ends all menu tracking */
 - (void)cancelTracking;
@@ -91,6 +88,10 @@
 /* Reciever's parent menus (supermenus) will stop tracking mouse, allowing to make mouse movements outside of menu withough closing its tracking. */
 - (BOOL)menusSuspended;
 - (void)setSuspendMenus:(BOOL)suspend;
+
+/* When menu item is selected its action could be processed instantly or with delay. Default is NO. */
+- (void)setPerformsActionInstantly:(BOOL)instantly;
+- (BOOL)performsActionInstantly;
 
 /* Returns the highlighted item in the menu, or nil if no item in the menu is highlighted */
 - (CMMenuItem *)highlightedItem;

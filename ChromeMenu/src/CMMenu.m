@@ -722,6 +722,16 @@ typedef struct {
 }
 
 
+- (void)setPerformsActionInstantly:(BOOL)instantly {
+	_performsActionInstantly = instantly;
+}
+
+
+- (BOOL)performsActionInstantly {
+	return _performsActionInstantly;
+}
+
+
 /*
  *
  */
@@ -978,8 +988,11 @@ typedef struct {
 		
 		if ([target respondsToSelector:action]) {
 			XLog2("Performing action on item: %@", item);
-			//			[target performSelector:action withObject:item afterDelay:0.15 inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
-			[NSApp sendAction:action to:target from:item];
+			if (_performsActionInstantly)
+				[NSApp sendAction:action to:target from:item];
+			else
+				[target performSelector:action withObject:item afterDelay:0.2 inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
+
 		}
 	}
 	
@@ -1377,12 +1390,11 @@ typedef struct {
 	
 	if (reasonSuccess == NO) {
 		[_activeSubmenu cancelTrackingWithoutAnimation];
-		if (NSPointInRect([NSEvent mouseLocation], [self frame])) {
-			for (CMMenuItem *item in _menuItems)
-				if ([item mouseOver]) {
-					[item selectWithDelayForSubmenu:SUBMENU_POPUP_DELAY_AFTER_TRACKING];
-					break;
-				}
+		NSPoint mouseLocation = [NSEvent mouseLocation];
+		if (NSPointInRect(mouseLocation, [self frame])) {
+			CMMenuItem *item = [self itemAtPoint:mouseLocation];
+			if (item)
+				[item selectWithDelayForSubmenu:SUBMENU_POPUP_DELAY_AFTER_TRACKING];
 		}
 	}
 }

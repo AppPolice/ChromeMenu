@@ -26,7 +26,7 @@
 - (NSRect)frameRelativeToScreen;
 
 - (BOOL)isSelected;
-- (BOOL)mouseOver;
+//- (BOOL)mouseOver;
 
 /**
  * @abstract Sets item selected and highlighted accordingly. Submenu, event if the item has it, is not being shown.
