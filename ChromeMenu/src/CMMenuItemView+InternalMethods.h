@@ -1,6 +1,6 @@
 //
 //  CMMenuItemView+InternalMethods.h
-//  Ishimura
+//  ChromeMenu
 //
 //  Created by Maksym on 7/20/13.
 //  Copyright (c) 2013 Maksym Stefanchuk. All rights reserved.

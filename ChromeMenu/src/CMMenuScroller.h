@@ -1,13 +1,11 @@
 //
 //  CMMenuScroller.h
-//  Ishimura
+//  ChromeMenu
 //
 //  Created by Maksym on 9/7/13.
 //  Copyright (c) 2013 Maksym Stefanchuk. All rights reserved.
 //
 
-
-@class NSView, NSTrackingArea;
 
 enum {
 	CMMenuScrollerTop = 1,

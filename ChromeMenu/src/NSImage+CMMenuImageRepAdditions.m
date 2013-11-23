@@ -1,6 +1,6 @@
 //
 //  NSImage+NSImage_BitmapImageRep.m
-//  Ishimura
+//  ChromeMenu
 //
 //  Created by Maksym on 9/10/13.
 //  Copyright (c) 2013 Maksym Stefanchuk. All rights reserved.

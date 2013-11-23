@@ -1,6 +1,6 @@
 //
 //  CMMenu+InternalMethods.h
-//  Ishimura
+//  ChromeMenu
 //
 //  Created by Maksym on 7/12/13.
 //  Copyright (c) 2013 Maksym Stefanchuk. All rights reserved.
@@ -20,8 +20,8 @@
 
 
 
-#ifndef Ishimura_CMMenuEventTypes_h
-#define Ishimura_CMMenuEventTypes_h
+#ifndef CMMenuEventTypes_h
+#define CMMenuEventTypes_h
 
 typedef enum : NSUInteger {
 	CMMenuEventDuringTrackingAreaUpdate = 0x001,				// when mouse event occurred because of scrolling

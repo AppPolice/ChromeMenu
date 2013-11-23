@@ -1,13 +1,13 @@
 //
 //  CMDebug.h
-//  Ishimura
+//  ChromeMenu
 //
 //  Created by Maksym on 9/28/13.
 //  Copyright (c) 2013 Maksym Stefanchuk. All rights reserved.
 //
 
-#ifndef Ishimura_CMDebug_h
-#define Ishimura_CMDebug_h
+#ifndef ChromeMenu_CMDebug_h
+#define ChromeMenu_CMDebug_h
 
 // Note DEBUG macro is automated to be defined in "Preprocessor Macros"
 // in project target Build Settings only for Debug builds.
