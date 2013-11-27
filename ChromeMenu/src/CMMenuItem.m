@@ -397,7 +397,7 @@
 			} else {
 				_isSelected = YES;
 				
-				if ([self hasSubmenu] && [_submenu numberOfItems]) {
+				if ([self hasSubmenu]) { //  && [_submenu numberOfItems]
 					[self performSelector:@selector(showItemSubmenu)
 							   withObject:nil
 							   afterDelay:SUBMENU_POPUP_DELAY_DEFAULT
@@ -527,7 +527,7 @@
 
 	[self select];
 
-	if ([self hasSubmenu] && [_submenu numberOfItems]) {
+	if ([self hasSubmenu]) { //  && [_submenu numberOfItems]
 //		[self performSelector:@selector(showItemSubmenu) withObject:nil afterDelay:delay inModes:[NSArray arrayWithObject:NSEventTrackingRunLoopMode]];
 		[self performSelector:@selector(showItemSubmenu) withObject:nil afterDelay:delay inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
 		_submenuIntervalIsSetToPopup = YES;

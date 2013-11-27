@@ -47,7 +47,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect {
 //	NSLog(@"Cell View draw rect called. Cell subviews: %@", [self subviews]);
-//	NSLog(@"DRAW ItemView with rect: %@", NSStringFromRect([self frame]));
+//	NSLog(@"DRAW ItemView with rect: %@, title: %@", NSStringFromRect([self frame]), [[self title] stringValue]);
 //	NSLog(@"frame: %@", NSStringFromRect([self frame]));
 	
 

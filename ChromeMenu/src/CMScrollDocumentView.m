@@ -10,7 +10,6 @@
 
 @implementation CMScrollDocumentView
 
-
 - (BOOL)isFlipped {
 	return YES;
 }

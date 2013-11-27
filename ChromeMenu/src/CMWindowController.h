@@ -38,6 +38,7 @@
 - (void)addView:(NSViewController *)viewController animate:(BOOL)animate;
 - (void)removeViewAtIndex:(NSUInteger)index;
 - (void)removeViewAtIndex:(NSUInteger)index animate:(BOOL)animate complitionHandler:(void (^)(void))handler;
+- (void)removeAllViews;
 
 - (void)updateDocumentView;
 

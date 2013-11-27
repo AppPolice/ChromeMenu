@@ -85,7 +85,7 @@ typedef struct {
 }
 
 
-- (void)reloadData;
+- (void)loadItemViews;
 - (void)showWithOptions:(CMMenuOptions)options;
 
 /**
@@ -162,7 +162,7 @@ typedef struct {
 //		[NSBundle loadNibNamed:[self className] owner:self];
 //		menuItems = items;
 //		[menuItems retain];
-//		[menuTableView reloadData];
+//		[menuTableView loadItemViews];
 //	}
 //	return self;
 //}
@@ -432,6 +432,29 @@ typedef struct {
 /*
  *
  */
+- (void)removeAllItems {
+	if (_isActive)
+		[self cancelTrackingWithoutAnimation];
+	
+	for (CMMenuItem *item in _menuItems) {
+		if ([item hasSubmenu]) {
+			[[item submenu] setParentItem:nil];
+			[[item submenu] setSupermenu:nil];
+			[item setSubmenu:nil];
+		}
+	}
+	[_menuItems removeAllObjects];
+	[_underlyingWindowController removeAllViews];
+	XLog3("Removed all items from menu \"%@\"", _title);
+	// Set menu as needing display next time (if) new items are added
+	// to it.
+	_needsDisplay = YES;
+}
+
+
+/*
+ *
+ */
 - (void)setSubmenu:(CMMenu *)aMenu forItem:(CMMenuItem *)anItem {
 //	if (aMenu == nil || anItem == nil)
 	if (anItem == nil)
@@ -453,22 +476,38 @@ typedef struct {
 		}
 	}
 	
-	if (! _underlyingWindowController) {
-		_underlyingWindowController = [[CMWindowController alloc] initWithOwner:self];
-		[self reloadData];
+	// If menu has been updates by delegate or otherwise there are no items
+	// to show -- return.
+	if (! [_menuItems count])
+		return;
+
+	
+	// Second condition is evaluated when there are items in menu
+	// but these items don't have according views drawn on window.
+	// This could be after [CMMenu removeAllItems] and new items
+	// added but not yet drawn. It is more efficient to process them
+	// all at once then one by one.
+	if ( !_underlyingWindowController ||
+		(_needsDisplay && NSEqualSizes([_underlyingWindowController intrinsicContentSize], NSZeroSize)) )
+	{
+		if (! _underlyingWindowController)
+			_underlyingWindowController = [[CMWindowController alloc] initWithOwner:self];
+		[self loadItemViews];
 		_needsDisplay = NO;
 	}
 	
 	[self displayInFrame:NSZeroRect options:options display:NO];
 	_isActive = YES;
-	
+
+	// Root menu
 	if (! _supermenu) {
-		_globalEventMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseDownMask | NSRightMouseDownMask | NSOtherMouseDownMask handler:^(NSEvent *theEvent) {
+		_globalEventMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseDownMask | NSRightMouseDownMask | NSOtherMouseDownMask
+																	 handler:^(NSEvent *theEvent) {
 			[self cancelTracking];
 		}];
 		
 
-		if (! [NSApp isActive]) {		// otherwise NSApp will not recieve events
+		if (! [NSApp isActive]) {	// otherwise NSApp will not recieve events
 			[NSApp activateIgnoringOtherApps:YES];
 		}
 		
@@ -504,7 +543,7 @@ typedef struct {
  *
  */
 - (void)popUpMenuForStatusItemWithRect:(NSRect)rect {
-	if (_isActive)
+	if (_isActive || [_menuItems count] == 0)
 		return;
 
 	_isAttachedToStatusItem = YES;
@@ -910,9 +949,9 @@ typedef struct {
 
 
 /*
- * Based on Menu Items we create View Controllers and give them for drawing to Window Controller
+ * Based on Menu Items we create View Controllers and pass them for drawing to Window Controller
  */
-- (void)reloadData {
+- (void)loadItemViews {
 	NSMutableArray *viewControllers = [NSMutableArray array];
 	
 	for (CMMenuItem *menuItem in _menuItems) {

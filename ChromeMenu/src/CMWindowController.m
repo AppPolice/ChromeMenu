@@ -51,7 +51,7 @@ typedef struct tracking_primitive_s {
 //	CMScrollDocumentView *_scrollDocumentView;
 	
 //	BOOL _needsLayoutUpdate;
-	CGFloat _maximumViewWidth;
+//	CGFloat _maximumViewWidth;
 	CGFloat _defaultViewHeight;
 	CGFloat _defaultSeparatorViewHeight;
 	
@@ -91,11 +91,11 @@ typedef struct tracking_primitive_s {
  * @discussion Method is called from inside NSEventTrackingRunLoop every time there
  *	is an NSMouseMoved event.
  * @param mouseLocation Current mouse location in screen coordinates.
- * @param mouseInside Tells whether the mouse cursor is inside the receiving window frame.
+ * @param insideMenu Tells whether the mouse cursor is inside the receiving window frame.
  *	If mouse is not inside -- this paramter is used as a hint to short cut the loop through
  *	all primitives and instead just process the mouse exit events on all primitives previously selected.
  */
-- (void)eventOnTrackingPrimitiveAtLocation:(NSPoint)mouseLocation mouseInside:(BOOL)mouseInside;
+- (void)eventOnTrackingPrimitiveAtLocation:(NSPoint)mouseLocation insideMenu:(BOOL)mouseInside;
 
 - (void)mouseEventOnItemView:(NSViewController *)viewController eventType:(CMMenuEventType)eventType;
 
@@ -197,8 +197,12 @@ typedef struct tracking_primitive_s {
 
 
 - (NSSize)intrinsicContentSize {
-	NSSize documentSize = [[_scrollView documentView] bounds].size;
-	return NSMakeSize(documentSize.width, documentSize.height + 2 * _verticalPadding);
+	if ([_viewControllers count] == 0)
+		return NSZeroSize;
+	else {
+		NSSize documentSize = [[_scrollView documentView] bounds].size;
+		return NSMakeSize(documentSize.width, documentSize.height + 2 * _verticalPadding);
+	}
 }
 
 
@@ -302,10 +306,18 @@ typedef struct tracking_primitive_s {
 
 	_keepTracking = NO;
 	[self discardTrackingPrimitivesIgnoreMouse:YES];
+
 	// By posting another event we will effectively quit nextEventMatchingMask event tracking
-	//	since we set the _keepTracking to NO.
-	NSEvent *customEvent = [NSEvent otherEventWithType:NSSystemDefined location:NSMakePoint(1, 1) modifierFlags:0 timestamp:0 windowNumber:0 context:nil subtype:0 data1:0 data2:0];
-//	NSEvent *customEvent = [NSEvent mouseEventWithType:NSLeftMouseDown location:NSMakePoint(1, 1) modifierFlags:0 timestamp:0 windowNumber:0 context:nil eventNumber:0 clickCount:1 pressure:0.0];
+	// since we set the _keepTracking to NO.
+	NSEvent *customEvent = [NSEvent otherEventWithType:NSSystemDefined
+											  location:NSMakePoint(1, 1)
+										 modifierFlags:0
+											 timestamp:0
+										  windowNumber:0
+											   context:nil
+											   subtype:0
+												 data1:0
+												 data2:0];
 //	NSLog(@"resend last event: %@", customEvent);
 //	[NSApp discardEventsMatchingMask:NSAnyEventMask beforeEvent:[NSApp currentEvent]];
 	[NSApp postEvent:customEvent atStart:YES];
@@ -350,7 +362,6 @@ typedef struct tracking_primitive_s {
 		return;
 	
 	
-//	if (_viewControllers != viewControllers) {
 	if (_viewControllers) {
 		for (NSViewController *viewController in _viewControllers)
 			[viewController.view removeFromSuperview];
@@ -358,7 +369,6 @@ typedef struct tracking_primitive_s {
 		[_viewControllers release];
 	}
 	_viewControllers = [viewControllers retain];
-//	}
 
 	
 	NSView *documentView = [_scrollView documentView];
@@ -396,10 +406,8 @@ typedef struct tracking_primitive_s {
 		frame.origin.x = 0;
 		[view setFrame:frame];
 	}
-	
+
 	[documentView setFrame:NSMakeRect(0, 0, maximumWidth, -1 * offset)];
-	
-//	[self updateViews];
 }
 
 
@@ -480,7 +488,7 @@ typedef struct tracking_primitive_s {
 	}
 	
 	[_viewControllers insertObject:viewController atIndex:index];
-	_maximumViewWidth = subviewsWidth;
+//	_maximumViewWidth = subviewsWidth;
 	
 //	NSLog(@"new document frame: %@", NSStringFromRect([documentView frame]));
 }
@@ -521,10 +529,10 @@ typedef struct tracking_primitive_s {
 				subviewsWidth = size.width;
 		}
 		
-		_maximumViewWidth = subviewsWidth;
+//		_maximumViewWidth = subviewsWidth;
 	}
 	
-	// Issue warning if the view has zero height.
+	// Emit warning if the view has zero height.
 	// This is prone to visual defects, like menu items will not move up to take the space
 	// previusly occupied by the item whose view has zero height.
 	// This issue can show itself if the view created in Interface Builder doesn't have
@@ -562,13 +570,33 @@ typedef struct tracking_primitive_s {
 	
 	CMMenuItemView *view = (CMMenuItemView *)[(NSViewController *)[_viewControllers objectAtIndex:index] view];
 	[view fadeOutWithComplitionHandler:^(void) {
-//		NSLog(@"animation finished, now remove");
 		[self removeViewAtIndex:index];
 		if (handler)
 			handler();
 	}];
 }
 
+
+/*
+ *
+ */
+- (void)removeAllViews {
+	for (NSViewController *viewController in _viewControllers) {
+		[[viewController view] removeFromSuperview];
+	}
+	[_viewControllers release];
+	_viewControllers = nil;
+	
+	if (_topScroller && [_topScroller superview])
+		[_topScroller removeFromSuperview];
+	if (_bottomScroller && [_bottomScroller superview])
+		[_bottomScroller removeFromSuperview];
+	
+	// It is necessary to set documentView to ZeroRect so that
+	// next time (if) new views are added to it they could
+	// draw at correct positions.
+	[[_scrollView documentView] setFrame:NSZeroRect];
+}
 
 
 /**
@@ -690,11 +718,12 @@ typedef struct tracking_primitive_s {
 		|| aPoint.y < rect.origin.y || aPoint.y > rect.origin.y + rect.size.height)
 		return nil;
 	
-//	NSArray *viewControllers = _viewControllers;
 	for (NSViewController *viewController in _viewControllers) {
 		NSRect frame = [[viewController view] frame];
-		if (frame.origin.y + frame.size.height >= aPoint.y)
+		if (NSMaxY(frame) > aPoint.y) {
+//			NSLog(@"gotcha view: %@ point: %@", NSStringFromRect([[viewController view] frame]), NSStringFromPoint(aPoint));
 			return viewController;
+		}
 	}
 	
 	return nil;
@@ -1030,7 +1059,7 @@ typedef struct tracking_primitive_s {
 /*
  *
  */
-- (void)eventOnTrackingPrimitiveAtLocation:(NSPoint)mouseLocation mouseInside:(BOOL)mouseInside {
+- (void)eventOnTrackingPrimitiveAtLocation:(NSPoint)mouseLocation insideMenu:(BOOL)mouseInside {
 //	NSLog(@"tracking event at loc: %@", NSStringFromPoint(mouseLocation));
 	
 	if (! _trackingPrimitivesList)
@@ -1066,8 +1095,20 @@ typedef struct tracking_primitive_s {
 		}
 	} else {
 		CMTrackingPrimitive *trackingPrimitive = NULL;		// find a primitive that currently has mouse inside
-		for (primitive = _trackingPrimitivesList ; primitive != NULL; primitive = primitive->next) {
-			if (NSPointInRect(mouseLocation, primitive->rect)) {
+		for (primitive = _trackingPrimitivesList; primitive != NULL; primitive = primitive->next) {
+//			if (NSPointInRect(mouseLocation, primitive->rect)) {
+			// Originally Item views a drawn on flipped superview and this
+			// flips the "upper" edge inclusion of NSPointInRect.
+			// "upper" edge is now farther from the bottom of the screen.
+			// However when comparing in screen coordinates this hint is lost
+			// and NSPointInRect produces unexpected result.
+			// Using a manual compare the edge farther to the bottom of the
+			// screen is considered inside.
+			if (mouseLocation.x >= NSMinX(primitive->rect) &&
+				mouseLocation.x < NSMaxX(primitive->rect) &&
+				mouseLocation.y > NSMinY(primitive->rect) &&
+				mouseLocation.y <= NSMaxY(primitive->rect))
+			{
 				trackingPrimitive = primitive;
 				break;
 			}
@@ -1221,7 +1262,7 @@ typedef struct tracking_primitive_s {
 				if ([_owner receivesMouseMovedEvents])
 					[_owner mouseEventAtLocation:mouseLocation type:NSMouseMoved];
 				// Process tracking primitive event
-				[self eventOnTrackingPrimitiveAtLocation:mouseLocation mouseInside:YES];
+				[self eventOnTrackingPrimitiveAtLocation:mouseLocation insideMenu:YES];
 				
 				/* temp *//* {
 					NSUInteger modifierFlags = [theEvent modifierFlags];
@@ -1246,7 +1287,7 @@ typedef struct tracking_primitive_s {
 					}
 				} */ // temp
 			} else {
-				[self eventOnTrackingPrimitiveAtLocation:mouseLocation mouseInside:NO];
+				[self eventOnTrackingPrimitiveAtLocation:mouseLocation insideMenu:NO];
 				
 				if (candidateMenu && (eventMask & [candidateMenu eventBlockingMask])) {
 //					NSLog(@"Event has been blocked. Conitnue.");
@@ -1260,7 +1301,7 @@ typedef struct tracking_primitive_s {
 						[candidateMenu mouseEventAtLocation:mouseLocation type:NSMouseMoved];
 					
 					[candidateMenu mouseEventAtLocation:mouseLocation type:NSMouseEntered];
-					[[candidateMenu underlyingWindowController] eventOnTrackingPrimitiveAtLocation:mouseLocation mouseInside:YES];
+					[[candidateMenu underlyingWindowController] eventOnTrackingPrimitiveAtLocation:mouseLocation insideMenu:YES];
 					if ([candidateMenu supermenu] == _owner) {				// entered submenu
 						[candidateMenu beginTrackingWithEvent:theEvent options:CMMenuOptionDefaults];
 					} else {												// entered one of the supermenus
@@ -1461,7 +1502,7 @@ typedef struct tracking_primitive_s {
 //	CMMenuItemView *view = (CMMenuItemView *)[viewController view];
 //	NSLog(@"ffframe: %@", NSStringFromRect([view frame]));
 	
-//	NSLog(@"Mouse event on item: %@", [menuItem title]);
+//	NSLog(@"Mouse event on item: %@, type: %lu", [menuItem title], eventType);
 	
 	
 	BOOL selected;
