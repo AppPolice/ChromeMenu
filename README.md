@@ -1,29 +1,22 @@
-Googalexa
-=========
+ChromeMenu.Framework
+====================
 
-Minimalistic Firefox add-on for Google and Alexa site statistics
+Mac OS X Framework that implements the functionality of AppKit's NSMenu and NSMenuItem.  
+It is a core part of the ``AppPolice`` application that builds its functionality around ``ChromeMenu`` interface.  
+``AppPolice`` links against this framework during runtime, so if you are clonning ``AppPolice`` make sure to clone ``ChromeMenu`` repository as well.
+
+NSMenu provides a somewhat limited API as to the ability to change its behaviour. The purpose of ``ChromeMenu.Framework`` is to give a fine-grained control of menu representaion.
+Note however that not all NSMenu methods were implemented--only those that provide the necessary functionality for the ``AppPolice`` app.
 
 ## Install
 
-Install Googalexa from [Mozilla Add-ons page](https://addons.mozilla.org/en-US/firefox/addon/googalexa/).
+Framework can be installed either privately within application or to a local Frameworks directory.
 
-## Configure
+## Use
 
-You can configure the representation and rounding of values:
-
-```
-Format numbers (1234567 => 1,234,567)
-Round thousands (123456 => 123K)
-Round millions (1234567 => 1.2M)
-```
-
-..as well as label styles by using regular CSS:
+ChromeMenu classes:
 
 ```
-color:#222222;
-font:12px Arial;
+CMMenu
+CMMenuItem
 ```
-
-## Example
-
-![alt tag](https://addons.cdn.mozilla.net/img/uploads/previews/full/112/112537.png)
