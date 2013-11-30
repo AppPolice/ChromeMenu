@@ -961,7 +961,7 @@ typedef struct {
 		[viewControllers addObject:viewController];
 
 	}
-	
+
 	[_underlyingWindowController layoutViews:viewControllers];
 }
 

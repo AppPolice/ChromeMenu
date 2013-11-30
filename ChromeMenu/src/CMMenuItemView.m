@@ -13,7 +13,7 @@
 #import <QuartzCore/CAMediaTimingFunction.h>
 #import <objc/runtime.h>
 
-
+#define INDENTATION_SIZE 11.0
 
 @interface CMMenuItemView ()
 {
@@ -255,7 +255,10 @@
 
 	[_submenuIconView setTranslatesAutoresizingMaskIntoConstraints:NO];
 	[self addSubview:_submenuIconView];
-	[constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[lastView]-(>=27)-[_submenuIconView(9)]-(9)-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(lastView, _submenuIconView)]];
+	[constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[lastView]-(>=27)-[_submenuIconView(9)]-(9)-|"
+																			 options:0
+																			 metrics:nil
+																			   views:NSDictionaryOfVariableBindings(lastView, _submenuIconView)]];
 	
 //	[constraints addObject:[NSLayoutConstraint constraintWithItem:lastView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:_submenuIconView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:-27]];
 //	
@@ -263,9 +266,21 @@
 	
 //	[constraints addObject:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_submenuIconView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:9.0]];
 	
-	[constraints addObject:[NSLayoutConstraint constraintWithItem:_submenuIconView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_submenuIconView attribute:NSLayoutAttributeHeight multiplier:0.0 constant:10.0]];
+	[constraints addObject:[NSLayoutConstraint constraintWithItem:_submenuIconView
+														attribute:NSLayoutAttributeHeight
+														relatedBy:NSLayoutRelationEqual
+														   toItem:_submenuIconView
+														attribute:NSLayoutAttributeHeight
+													   multiplier:0.0
+														 constant:10.0]];
 	
-	[constraints addObject:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:_submenuIconView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0]];
+	[constraints addObject:[NSLayoutConstraint constraintWithItem:self
+														attribute:NSLayoutAttributeCenterY
+														relatedBy:NSLayoutRelationEqual
+														   toItem:_submenuIconView
+														attribute:NSLayoutAttributeCenterY
+													   multiplier:1.0
+														 constant:0.0]];
 	
 //	[constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_submenuIconView]-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:NSDictionaryOfVariableBindings(_submenuIconView)]];
 	
@@ -351,6 +366,9 @@
 }
 
 
+/*
+ *
+ */
 - (void)setIndentationLevel:(NSInteger)indentationLevel {
 	_indentationLevel = indentationLevel;
 //	NSLog(@"set indent for view: %@", [_title stringValue]);
@@ -369,13 +387,24 @@
 		}
 		if (indentationConstraint) {
 //			NSLog(@"indent constraint: %@", indentationConstraint);
-			[indentationConstraint setConstant:(indentationLevel * 11) + 6];
+			[indentationConstraint setConstant:(indentationLevel * INDENTATION_SIZE) + 6];
 		}
 	}
 }
 
+
 - (NSInteger)indentationLevel {
 	return _indentationLevel;
+}
+
+
+- (NSSize)fittingSize {
+	NSSize size = [super fittingSize];
+	// If the view has an indentation level but is not currently on the
+	// superview fitting width needs to take into account indentation
+	if (_indentationLevel && ![self superview])
+		size.width += _indentationLevel * INDENTATION_SIZE;
+	return size;
 }
 
 

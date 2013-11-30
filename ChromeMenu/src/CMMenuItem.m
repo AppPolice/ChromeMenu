@@ -304,10 +304,9 @@
 	if (_representedViewController) {
 		CMMenuItemView *view =  (CMMenuItemView *)[_representedViewController view];
 		[view setIndentationLevel:indentationLevel];
-		// If menu item with new indentation is wider then the menu currently is
-		// redraw menu with new size and position
-		if ([view fittingSize].width > [_menu frame].size.width)
-			[_menu setNeedsDisplay:YES];
+		// Indentation could go higher as well as lower. In any case
+		// the menu could be redrawn wider and narrower
+		[_menu setNeedsDisplay:YES];
 	}
 }
 

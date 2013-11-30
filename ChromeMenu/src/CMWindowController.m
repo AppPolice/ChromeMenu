@@ -1389,18 +1389,19 @@ typedef struct tracking_primitive_s {
 					} else if (modifierFlags & NSAlternateKeyMask) {
 						item = [_owner itemAtPoint:mouseLocation];
 //						NSUInteger idx = (NSUInteger)[_owner indexOfItem:item];
-						if (item) {
-						[_owner removeItem:item animate:YES];
+//						if (item) {
+//							[_owner removeItem:item animate:YES];
 //							NSMutableIndexSet *indexes = [NSMutableIndexSet indexSet];
 //							[indexes addIndex:(idx - 1)];
 //							[indexes addIndex:idx];
 //							[indexes addIndex:(idx + 2)];
 //							[_owner removeItemsAtIndexes:indexes];
-//							NSInteger indent = [item indentationLevel];
-//							++indent;
-//							if (indent > 15)
-//								indent = 0;
-//							[item setIndentationLevel:indent];
+						if (item) {
+							NSInteger indent = [item indentationLevel];
+							++indent;
+							if (indent > 15)
+								indent = 0;
+							[item setIndentationLevel:indent];
 						}
 
 					} else if (modifierFlags & NSCommandKeyMask) {
