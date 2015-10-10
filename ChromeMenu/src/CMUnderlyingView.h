@@ -6,11 +6,7 @@
 //  Copyright (c) 2013 Maksym Stefanchuk. All rights reserved.
 //
 
-
-@interface CMUnderlyingView : NSView
-{
-	NSArray *_borderRadiuses;
-}
+@protocol CMUnderlyingView <NSObject>
 
 /**
  * @abstract Designated initializer
@@ -19,5 +15,18 @@
 - (id)initWithFrame:(NSRect)frameRect borderRadiuses:(NSArray *)radiuses;
 
 - (void)setBorderRadiuses:(NSArray *)radiuses;
+
+@end
+
+
+
+
+@interface CMUnderlyingView : NSView <CMUnderlyingView>
+
+@end
+
+
+
+@interface CMUnderlyingViewVibrant : NSVisualEffectView <CMUnderlyingView>
 
 @end

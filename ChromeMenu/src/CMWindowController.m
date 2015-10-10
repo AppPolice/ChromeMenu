@@ -141,7 +141,14 @@ typedef struct tracking_primitive_s {
 			radiuses = @[radius, radius, radius, radius];
 		}
 		
-		CMUnderlyingView *contentView = [[CMUnderlyingView alloc] initWithFrame:rect borderRadiuses:radiuses];
+        CMUnderlyingView *contentView;
+        Class vibrantClass=NSClassFromString(@"NSVisualEffectView");
+        if (vibrantClass) {
+            contentView = (CMUnderlyingView *)[[CMUnderlyingViewVibrant alloc] initWithFrame:rect borderRadiuses:radiuses];
+        } else {
+            contentView = [[CMUnderlyingView alloc] initWithFrame:rect borderRadiuses:radiuses];
+        }
+        
 		window.contentView = contentView;
 		[contentView setAutoresizesSubviews:NO];
 		

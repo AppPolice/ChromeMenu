@@ -13,7 +13,7 @@
 // in project target Build Settings only for Debug builds.
 
 //#define CM_DEBUG_ON
-#define CM_DEBUG_LEVEL 3		// 1 is the lowest level, 3 is the highest
+#define CM_DEBUG_LEVEL 1		// 1 is the lowest level, 3 is the highest
 
 
 #if defined(DEBUG) && CM_DEBUG_LEVEL >= 1
